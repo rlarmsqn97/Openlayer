@@ -7,6 +7,9 @@
     <select id="getCoordinate" resultType="com.example.openlayer.vo.CoordinateVO">
         select replace(st_astext(geom), 'POINT(', '') as geom from coordinate
     </select>
+    <insert id="insertPolygonCoordinate" parameterType="com.example.openlayer.vo.CoordinateVO">
+
+    </insert>
 </mapper>
 <!--insert into coordinate (geom) values (st_geomfromtext('POINT'||(#{lon} #{lat})||'', 4326))-->
 <!--<foreach collection="point" item="point" open="'POINT((" close="))'" separator=",">-->

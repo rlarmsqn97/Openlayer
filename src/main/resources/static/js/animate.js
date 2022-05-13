@@ -14,10 +14,10 @@ gif.frames(
                 })
             );
         }
-        // ctx.clearRect(0, 0, frame.width, frame.height);
+        ctx.clearRect(0, 0, frame.width, frame.height);
 
-        ctx.drawImage(frame.buffer, 200, 20);
-        map.render();
+        ctx.drawImage(frame.buffer, 100, 20);
+        // map.render();
     },
     true
 );

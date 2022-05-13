@@ -31,10 +31,7 @@ const rasterLayer = new ol.layer.Tile({
     })
 })
 
-// const raster = new ol.layer.Tile({
-//     source: new ol.source.OSM(),
-// });
-//
+
 const source = new ol.source.Vector({wrapX: false});
 
 const vector = new ol.layer.Vector({
@@ -43,7 +40,7 @@ const vector = new ol.layer.Vector({
 
 const map = new ol.Map({
     target: "map",
-    layers: [baseLayer,viewLayer],
+    layers: [baseLayer,viewLayer,vectorLayer,vector],
     view: view,
     // interactions: ol.interaction.defaults().extend([new ol.interaction.DragRotateAndZoom()])
 });

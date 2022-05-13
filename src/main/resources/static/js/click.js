@@ -6,8 +6,6 @@ map.on('singleclick', function(e) {
     let lon = coordinate[0]
     let lat = coordinate[1]
     let data = {lon : lon, lat: lat}
-    let json = new ol.format.GeoJSON().writeFeatures(vector.getSource().getFeatures())
-    console.log(json)
     // addMarker(lon, lat)
     fetch(coordUrl, {
         method: 'POST',
@@ -27,7 +25,34 @@ window.onload = function() {
     addInteraction();
 }
 
+$('#gangdong').click(function(a) {
+    map.addLayer(gangdongLayer);
+})
 
+$('#gangnam').click(function() {
+    map.removeLayer(gangdongLayer)
+    map.addLayer(gangnamLayer);
+})
+
+$('#gangbok').click(function() {
+    map.addLayer(gangbokLayer);
+})
+
+$('#administration').click(function(t) {
+    console.log(t)
+    map.addLayer(administrationLayer);
+})
+
+$('#polygonFeature').click(() => {
+    // let ft = vector.getSource().getFeatures()
+    //
+    // for(let i=0;i<50; i++){
+    //     console.log(vector.features[i].geometry.getVertices())
+    // }
+    let json = new ol.format.GeoJSON().writeFeatures(vector.getSource().getFeatures())
+    console.log(json)
+    console.log(json.features.geometry.coordinates)
+})
 // mapView.on('singleclick', function(evt) {
 //     let container = document.createElement('div');
 //     container.classList.add('ol-popup-custom');
@@ -48,24 +73,6 @@ window.onload = function() {
 //     overlay.setPosition(coordinate);
 // });
 
-
-$('#gangdong').click(function(a) {
-    map.addLayer(gangdongLayer);
-})
-
-$('#gangnam').click(function() {
-    map.removeLayer(gangdongLayer)
-    map.addLayer(gangnamLayer);
-})
-
-$('#gangbok').click(function() {
-    map.addLayer(gangbokLayer);
-})
-
-$('#administration').click(function(t) {
-    console.log(t)
-    map.addLayer(administrationLayer);
-})
 // mapView.on("pointermove", function(e) {
 //
 // })
