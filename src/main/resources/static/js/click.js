@@ -66,7 +66,6 @@ $('#administration').click(function(t) {
     console.log(t)
     map.addLayer(administrationLayer);
 })
-
 // mapView.on("pointermove", function(e) {
 //
 // })
