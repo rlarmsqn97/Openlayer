@@ -9,4 +9,6 @@ import java.util.List;
 public interface CoordinateDAO {
     void coordinateInsert(CoordinateVO vo);
     List<CoordinateVO> getCoordinate();
+    void polygonInsert(CoordinateVO vo);
+    List<CoordinateVO> getPolygon();
 }

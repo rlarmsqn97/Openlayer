@@ -1,9 +1,9 @@
 let arr = []
 getApi("/getcoordinate")
     .then(data => {
-        for (let i = 0; i < data.length; i++) {
+        /*for (let i = 0; i < data.length; i++) {
             arr.push(data[i].geom.replace(')', ''))
-        }
+        }*/
     }).then(() => {
     let featureSource = new ol.source.Vector({})
     let featureLayer = new ol.layer.Vector({

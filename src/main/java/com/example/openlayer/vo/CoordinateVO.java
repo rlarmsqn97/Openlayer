@@ -9,4 +9,5 @@ public class CoordinateVO {
     private Double lon;
     private Double lat;
     private String geom;
+    private String polygonCoordinate;
 }

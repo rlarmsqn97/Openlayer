@@ -30,4 +30,10 @@ public class CoordinateServiceTest {
 //            log.info("vo : {}", vo.get(i));
         }
     }
+
+    @Test
+    public void 폴리곤_좌표_가져오기() {
+        List<CoordinateVO> vo = coordinateService.getPolygon();
+        log.info("polygon좌표 : {}", vo.get(1).getPolygonCoordinate());
+    }
 }

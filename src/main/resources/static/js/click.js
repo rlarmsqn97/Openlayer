@@ -7,18 +7,18 @@ map.on('singleclick', function(e) {
     let lat = coordinate[1]
     let data = {lon : lon, lat: lat}
     // addMarker(lon, lat)
-    fetch(coordUrl, {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type' : 'application/json',
-        },
-        redirect: 'follow',
-        referrer: 'no-referrer',
-        body: JSON.stringify(data),
-    }).then(() => console.log())
+    // fetch(coordUrl, {
+    //     method: 'POST',
+    //     mode: 'cors',
+    //     cache: 'no-cache',
+    //     credentials: 'same-origin',
+    //     headers: {
+    //         'Content-Type' : 'application/json',
+    //     },
+    //     redirect: 'follow',
+    //     referrer: 'no-referrer',
+    //     body: JSON.stringify(data),
+    // }).then(() => console.log())
 })
 
 window.onload = function() {
@@ -49,9 +49,24 @@ $('#polygonFeature').click(() => {
     // for(let i=0;i<50; i++){
     //     console.log(vector.features[i].geometry.getVertices())
     // }
-    let json = new ol.format.GeoJSON().writeFeatures(vector.getSource().getFeatures())
-    console.log(json)
-    console.log(json.features.geometry.coordinates)
+    let json = new ol.format.GeoJSON().writeFeatures(vector.getSource().getFeatures());
+    let features = [];
+    let wkt = new ol.format.WKT();
+    console.log(vector.getSource().getFeatures()[1]);
+    console.log(vector.getSource().getFeatures().length)
+    for(let i=0; i<vector.getSource().getFeatures().length; i++){
+        features = wkt.writeGeometry(vector.getSource().getFeatures()[i].getGeometry())
+    }
+    console.log(typeof features)
+    // features.replace(/POLYGON/g, 'MULTIPOLYGON')
+    console.log(features)
+    let data = {polygonCoordinate : features}
+    // console.log(new ol.format.WKT().writeGeometry(vector.getSource().getFeatures()[0].getGeometry(), {
+    //     dataProjection: 'EPSG:3857',
+    //     featureProjection: 'EPSG:3857'
+    // }));
+    insertPolygon(data);
+    console.log(json.features.geometry.coordinates[0])
 })
 // mapView.on('singleclick', function(evt) {
 //     let container = document.createElement('div');

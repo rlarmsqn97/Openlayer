@@ -25,4 +25,16 @@ public class DataController {
     public List<CoordinateVO> getCoordinate(){
         return coordinateService.getCoordinate();
     }
+
+    @PostMapping("/polygoncoordinate")
+    public void insertPolygon(@RequestBody CoordinateVO vo) {
+        log.info("vo : {}", vo.getPolygonCoordinate());
+        coordinateService.insertPolygon(vo);
+    }
+
+    @GetMapping("/getPolygon")
+    public List<CoordinateVO> getPolygon() {
+        log.info("polygon : {}", coordinateService.getPolygon().get(0).getPolygonCoordinate());
+        return coordinateService.getPolygon();
+    }
 }
