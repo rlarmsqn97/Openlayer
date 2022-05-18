@@ -68,6 +68,15 @@ $('#polygonFeature').click(() => {
     insertPolygon(data);
     console.log(json.features.geometry.coordinates[0])
 })
+
+map.on("click", function(e) {
+    map.forEachFeatureAtPixel(
+        e.pixel, function (feature, layer) {
+            let values = feature.getProperties();
+            console.log(values)
+        },
+    )
+})
 // mapView.on('singleclick', function(evt) {
 //     let container = document.createElement('div');
 //     container.classList.add('ol-popup-custom');

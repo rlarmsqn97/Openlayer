@@ -14,7 +14,7 @@ const view = new ol.View({
 
 // gif layer
 const iconFeature = new ol.Feature({
-    geometry : new ol.geom.Point([100, 50]),
+    // geometry : new ol.geom.Point([100, 50]),
 })
 
 const vectorSource = new ol.source.Vector({

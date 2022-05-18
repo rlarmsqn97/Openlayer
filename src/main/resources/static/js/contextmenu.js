@@ -1,12 +1,11 @@
 const contextmenuItems = [
     {
-        text: '하하',
+        text: '점',
         classname: 'bold',
-        callback: center
     },
     {
-        text: '후후',
-        classname: 'bold',
+        text: '다각형',
+        // callback: addInteraction('Polygon')
     }
 ];
 

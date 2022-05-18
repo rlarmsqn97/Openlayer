@@ -1,5 +1,5 @@
 let draw;
-function addInteraction(){
+function addInteraction(type){
     draw = new ol.interaction.Draw({
         source : source,
         type: "Polygon",
