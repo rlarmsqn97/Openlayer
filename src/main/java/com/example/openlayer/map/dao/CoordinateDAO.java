@@ -1,6 +1,6 @@
-package com.example.openlayer.dao;
+package com.example.openlayer.map.dao;
 
-import com.example.openlayer.vo.CoordinateVO;
+import com.example.openlayer.map.vo.CoordinateVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

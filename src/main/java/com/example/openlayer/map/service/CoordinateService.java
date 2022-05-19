@@ -1,7 +1,7 @@
-package com.example.openlayer.service;
+package com.example.openlayer.map.service;
 
-import com.example.openlayer.dao.CoordinateDAO;
-import com.example.openlayer.vo.CoordinateVO;
+import com.example.openlayer.map.dao.CoordinateDAO;
+import com.example.openlayer.map.vo.CoordinateVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

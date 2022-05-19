@@ -1,7 +1,7 @@
-package com.example.openlayer.service;
+package com.example.openlayer.user.service;
 
-import com.example.openlayer.dao.UserDAO;
-import com.example.openlayer.vo.UserVO;
+import com.example.openlayer.user.dao.UserDAO;
+import com.example.openlayer.user.vo.UserVO;
 import lombok.RequiredArgsConstructor;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ public class UserService implements UserDetailsService {
     public void joinUser(UserVO userVO){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         userVO.setUserPw(passwordEncoder.encode(userVO.getPassword()));
-        userVO.setUserAuth("USER");
+        userVO.setUserRole("USER");
         userVO.setAppendDate(localTime);
         userVO.setUpdateDate(localTime);
         userDAO.saveUser(userVO);
@@ -39,7 +39,6 @@ public class UserService implements UserDetailsService {
     public UserVO loadUserByUsername(String userId) throws UsernameNotFoundException {
         //여기서 받은 유저 패스워드와 비교하여 로그인 인증
         UserVO userVO = userDAO.getUserAccount(userId);
-        log.info("userVO : {}", userVO);
         if (userVO == null){
             throw new UsernameNotFoundException("User not authorized.");
         }

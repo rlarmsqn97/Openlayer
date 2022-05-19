@@ -1,6 +1,6 @@
-package com.example.openlayer.dao;
+package com.example.openlayer.user.dao;
 
-import com.example.openlayer.vo.UserVO;
+import com.example.openlayer.user.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

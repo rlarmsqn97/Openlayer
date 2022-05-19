@@ -1,5 +1,6 @@
-package com.example.openlayer.vo;
+package com.example.openlayer.user.vo;
 
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,13 +15,13 @@ public class UserVO implements UserDetails {
     private String userId;
     private String userPw;
     private String userName;
-    private String userAuth;
+    private String userRole;
     private String appendDate;
     private String updateDate;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority(this.userAuth));
+        return Collections.singletonList(new SimpleGrantedAuthority(this.userRole));
     }
 
     @Override
@@ -28,8 +29,9 @@ public class UserVO implements UserDetails {
         return this.userPw;
     }
 
-    // 시큐리티의 userName
-    // -> 따라서 얘는 인증할 때 id를 봄
+    /**
+     **  시큐리티의 userName -> 인증할 때 id를 봄
+     **/
     @Override
     public String getUsername() {
         return this.userId;

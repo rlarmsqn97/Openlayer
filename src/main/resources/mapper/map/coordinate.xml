@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.openlayer.dao.CoordinateDAO">
-    <insert id="coordinateInsert" parameterType="com.example.openlayer.vo.CoordinateVO">
+<mapper namespace="com.example.openlayer.map.dao.CoordinateDAO">
+    <insert id="coordinateInsert" parameterType="com.example.openlayer.map.vo.CoordinateVO">
         insert into coordinate (geom) values (st_geomfromtext('POINT('|| #{lon} ||' '|| #{lat} ||')', 3857))
     </insert>
-    <select id="getCoordinate" resultType="com.example.openlayer.vo.CoordinateVO">
+    <select id="getCoordinate" resultType="com.example.openlayer.map.vo.CoordinateVO">
         select st_x(geom)::text lon, st_y(geom)::text lat from coordinate
     </select>
-    <insert id="polygonInsert" parameterType="com.example.openlayer.vo.CoordinateVO">
+    <insert id="polygonInsert" parameterType="com.example.openlayer.map.vo.CoordinateVO">
         insert into coordinate (polygon_geom) values (st_geomfromtext(#{polygonCoordinate}, 3857))
     </insert>
-    <select id="getPolygon" resultType="com.example.openlayer.vo.CoordinateVO">
+    <select id="getPolygon" resultType="com.example.openlayer.map.vo.CoordinateVO">
         select st_astext(polygon_geom) as polygonCoordinate from coordinate
     </select>
 </mapper>

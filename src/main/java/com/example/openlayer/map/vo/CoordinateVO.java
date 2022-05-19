@@ -1,4 +1,4 @@
-package com.example.openlayer.vo;
+package com.example.openlayer.map.vo;
 
 import lombok.Getter;
 import lombok.Setter;

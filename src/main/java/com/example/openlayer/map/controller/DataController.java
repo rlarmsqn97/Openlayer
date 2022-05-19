@@ -1,7 +1,7 @@
-package com.example.openlayer.controller;
+package com.example.openlayer.map.controller;
 
-import com.example.openlayer.service.CoordinateService;
-import com.example.openlayer.vo.CoordinateVO;
+import com.example.openlayer.map.service.CoordinateService;
+import com.example.openlayer.map.vo.CoordinateVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

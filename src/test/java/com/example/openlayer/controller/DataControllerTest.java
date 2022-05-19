@@ -1,6 +1,7 @@
 package com.example.openlayer.controller;
 
-import com.example.openlayer.service.CoordinateService;
+import com.example.openlayer.map.controller.DataController;
+import com.example.openlayer.map.service.CoordinateService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class DataControllerTest {
 

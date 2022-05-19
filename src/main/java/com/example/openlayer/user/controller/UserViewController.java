@@ -1,7 +1,7 @@
-package com.example.openlayer.controller;
+package com.example.openlayer.user.controller;
 
-import com.example.openlayer.service.UserService;
-import com.example.openlayer.vo.UserVO;
+import com.example.openlayer.user.service.UserService;
+import com.example.openlayer.user.vo.UserVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-public class ViewController {
+public class UserViewController {
     private final UserService userService;
 
     @GetMapping("/")

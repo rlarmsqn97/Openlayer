@@ -1,7 +1,7 @@
-package com.example.openlayer.controller;
+package com.example.openlayer.user.controller;
 
-import com.example.openlayer.service.UserService;
-import com.example.openlayer.vo.UserVO;
+import com.example.openlayer.user.service.UserService;
+import com.example.openlayer.user.vo.UserVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -21,8 +21,8 @@ public class UserController {
 
     @GetMapping("/user_access")
     public String login(UserVO vo, Model model, Authentication authentication, HttpServletRequest request) {
-        log.info("request : {}",request);
-        return "index";
+        log.info("role : {}", authentication.getPrincipal());
+        return "admin/index";
     }
 
     @GetMapping("/access_denied")

@@ -1,6 +1,6 @@
 package com.example.openlayer.config;
 
-import com.example.openlayer.service.UserService;
+import com.example.openlayer.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -27,16 +27,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers( "/user/**").permitAll()
-                .antMatchers("/index").hasRole("USER")
-                .antMatchers("/index").hasRole("ADMIN")
+                .antMatchers("/admin/userList").hasRole("ADMIN")
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/user/login")
                 .loginProcessingUrl("/login_proc")
                 .defaultSuccessUrl("/user_access")
                 .failureUrl("/access_denied") // 인증에 실패했을 때 보여주는 화면 url, 로그인 form으로 파라미터값 error=true로 보낸다.
                 .and()
-                .csrf().disable();		//로그인 창
+                .csrf().disable();
     }
 
     @Override
