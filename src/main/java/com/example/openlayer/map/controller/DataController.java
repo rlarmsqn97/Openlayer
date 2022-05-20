@@ -6,7 +6,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @Slf4j
@@ -15,13 +18,16 @@ public class DataController {
     private final CoordinateService coordinateService;
 
     @PostMapping("/coordinate")
-    public void insertCoordinate(@RequestBody CoordinateVO vo) {
-        log.info("vo : {}", vo.getLat());
+    public void insertCoordinate(@RequestBody List<CoordinateVO> vo) {
+        for (int i=0;i<vo.size();i++) {
+            log.info("vo : {}", vo.get(i).getPointCoordinate());
+        }
         coordinateService.insertCoordinate(vo);
     }
 
     @GetMapping("/getcoordinate")
     public List<CoordinateVO> getCoordinate(){
+        log.info("coordinate : {}", coordinateService.getCoordinate());
         return coordinateService.getCoordinate();
     }
 

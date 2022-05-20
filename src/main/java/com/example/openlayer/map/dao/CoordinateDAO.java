@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface CoordinateDAO {
-    void coordinateInsert(CoordinateVO vo);
+    void coordinateInsert(List<CoordinateVO> vo);
     List<CoordinateVO> getCoordinate();
     void polygonInsert(CoordinateVO vo);
     List<CoordinateVO> getPolygon();

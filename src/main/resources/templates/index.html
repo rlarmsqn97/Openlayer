@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <!-- OpenLayers -->
@@ -36,10 +37,16 @@
     <button type="button" id="gangnam" class="btn">강남</button>
     <button type="button" id="gangbok" class="btn">강북</button>
     <button type="button" id="administration" class="btn">서울행정구역</button>
-    <button type="button" id="getPoint" class="btn">점 다시 찍기</button>
+    <button type="button" id="drawPoint" class="btn">점 찍기</button>
+    <button type="button" id="drawingPolygon" class="btn">폴리곤 찍기</button>
+    <button type="button" id="savePoint" class="btn">점저장</button>
     <button type="button" id="polygonFeature" class="btn">폴리곤저장</button>
-    <button type="button" id="drawPolygon" class="btn">폴리곤찍기</button>
-    <a th:href="@{/userList}">회원관리</a>
+    <button type="button" id="getPoint" class="btn">db점</button>
+    <button type="button" id="drawPolygon" class="btn">db폴리곤</button>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+         <a th:href="@{/userList}">회원관리</a>
+        <span sec:authentication="principal.authorities"></span>
+    </div>
 </div>
 
 <script src="static/js/main.js" type="text/javascript"></script>
@@ -49,11 +56,12 @@
 <script src="static/js/click.js" type="text/javascript"></script>
 <script src="static/js/getPolygon.js" type="text/javascript"></script>
 <script src="static/js/blockDirectAccess.js" type="text/javascript"></script>
+<script src="static/js/insertPoint.js" type="text/javascript"></script>
 <!--<script src="static/js/marker.js" type="text/javascript"></script>-->
 <!-- <script src="js/getPolygonArea.js" type="text/javascript"></script> -->
 <script src="static/js/geoserverLayers.js" type="text/javascript"></script>
 <!--<script src="static/js/animate.js" type="text/javascript"></script>-->
-<script src="static/js/point.js" type="text/javascript"></script>
+<script src="static/js/addInteraction.js" type="text/javascript"></script>
 <script src="static/js/contextmenu.js" type="text/javascript"></script>
 <script src="static/js/map_filter_reduce.js" type="text/javascript"></script>
 <!-- <script src="js/dinamic.js" type="text/javascript"></script> -->

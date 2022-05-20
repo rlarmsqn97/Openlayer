@@ -42,6 +42,7 @@ public class UserService implements UserDetailsService {
         if (userVO == null){
             throw new UsernameNotFoundException("User not authorized.");
         }
+
         return userVO;
     }
 }

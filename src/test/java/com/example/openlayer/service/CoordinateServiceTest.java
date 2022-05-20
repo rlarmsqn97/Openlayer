@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
@@ -18,18 +19,14 @@ public class CoordinateServiceTest {
 
     @Test
     public void 좌표_저장() {
-        CoordinateVO vo = new CoordinateVO();
-//        vo.setLat(20032.492);
-//        vo.setLon(199239.2949);
+        List<CoordinateVO> vo = new ArrayList<>();
         coordinateService.insertCoordinate(vo);
     }
 
     @Test
     public void 좌표_가져오기() {
         List<CoordinateVO> vo = coordinateService.getCoordinate();
-        for (int i = 0; i < vo.size(); i++) {
-//            log.info("vo : {}", vo.get(i));
-        }
+        log.info("{}", vo);
     }
 
     @Test

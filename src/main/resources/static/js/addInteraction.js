@@ -2,7 +2,8 @@ let draw;
 function addInteraction(type){
     draw = new ol.interaction.Draw({
         source : source,
-        type: "Polygon",
+        type: type,
     })
+    console.log(type)
     map.addInteraction(draw)
 }

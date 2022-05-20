@@ -21,13 +21,12 @@ public class UserController {
 
     @GetMapping("/user_access")
     public String login(UserVO vo, Model model, Authentication authentication, HttpServletRequest request) {
-        log.info("role : {}", authentication.getPrincipal());
-        return "admin/index";
+        return "/index";
     }
 
     @GetMapping("/access_denied")
     public String accessDenied() {
-        return "user/access_denied";
+        return "/access_denied";
     }
 
 }

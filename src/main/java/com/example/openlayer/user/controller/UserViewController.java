@@ -16,12 +16,12 @@ public class UserViewController {
 
     @GetMapping("/")
     public String index() {
-        return "user/login";
+        return "/login";
     }
 
     @GetMapping("/signup")
     public String singUpForm() {
-        return"user/signup";
+        return"/signup";
     }
 
     @PostMapping("/signup")

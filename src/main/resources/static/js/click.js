@@ -1,29 +1,12 @@
-// 지도 클릭 이벤트
-const coordUrl = "/coordinate"
-
-map.on('singleclick', function(e) {
-    let coordinate = e.coordinate
-    let lon = coordinate[0]
-    let lat = coordinate[1]
-    let data = {lon : lon, lat: lat}
-    // addMarker(lon, lat)
-    // fetch(coordUrl, {
-    //     method: 'POST',
-    //     mode: 'cors',
-    //     cache: 'no-cache',
-    //     credentials: 'same-origin',
-    //     headers: {
-    //         'Content-Type' : 'application/json',
-    //     },
-    //     redirect: 'follow',
-    //     referrer: 'no-referrer',
-    //     body: JSON.stringify(data),
-    // }).then(() => console.log())
+$('#drawPoint').click(() => {
+    map.removeInteraction(draw);
+    addInteraction('Point');
 })
 
-window.onload = function() {
-    addInteraction();
-}
+$('#drawingPolygon').click(() => {
+    map.removeInteraction(draw);
+    addInteraction('Polygon');
+})
 
 $('#gangdong').click(function(a) {
     map.addLayer(gangdongLayer);
@@ -69,14 +52,6 @@ $('#polygonFeature').click(() => {
     console.log(json.features.geometry.coordinates[0])
 })
 
-map.on("click", function(e) {
-    map.forEachFeatureAtPixel(
-        e.pixel, function (feature, layer) {
-            let values = feature.getProperties();
-            console.log(values)
-        },
-    )
-})
 // mapView.on('singleclick', function(evt) {
 //     let container = document.createElement('div');
 //     container.classList.add('ol-popup-custom');

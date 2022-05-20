@@ -15,10 +15,11 @@ public class CoordinateService {
 
     private final CoordinateDAO coordinateDAO;
 
-    public void insertCoordinate(CoordinateVO vo){
+    public void insertCoordinate(List<CoordinateVO> vo){
         coordinateDAO.coordinateInsert(vo);
     }
     public List<CoordinateVO> getCoordinate() {
+        log.info("coord :  {}", coordinateDAO.getCoordinate());
         return coordinateDAO.getCoordinate();
     }
     public void insertPolygon(CoordinateVO vo) { coordinateDAO.polygonInsert(vo);}
