@@ -6,10 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @Slf4j
@@ -17,23 +14,25 @@ import java.util.Map;
 public class DataController {
     private final CoordinateService coordinateService;
 
-    @PostMapping("/coordinate")
+    @PostMapping("/point")
     public void insertCoordinate(@RequestBody List<CoordinateVO> vo) {
-        for (int i=0;i<vo.size();i++) {
-            log.info("vo : {}", vo.get(i).getPointCoordinate());
+        for (CoordinateVO coordinateVO : vo) {
+            log.info("vo : {}", coordinateVO.getPointCoordinate());
         }
-        coordinateService.insertCoordinate(vo);
+        coordinateService.insertPoint(vo);
     }
 
-    @GetMapping("/getcoordinate")
+    @GetMapping("/getCoordinate")
     public List<CoordinateVO> getCoordinate(){
-        log.info("coordinate : {}", coordinateService.getCoordinate());
-        return coordinateService.getCoordinate();
+        log.info("coordinate : {}", coordinateService.getPoint());
+        return coordinateService.getPoint();
     }
 
-    @PostMapping("/polygoncoordinate")
-    public void insertPolygon(@RequestBody CoordinateVO vo) {
-        log.info("vo : {}", vo.getPolygonCoordinate());
+    @PostMapping("/polygon")
+    public void insertPolygon(@RequestBody List<CoordinateVO> vo) {
+        for (CoordinateVO coordinateVO : vo) {
+            log.info("vo : {}", coordinateVO.getPolygonCoordinate());
+        }
         coordinateService.insertPolygon(vo);
     }
 

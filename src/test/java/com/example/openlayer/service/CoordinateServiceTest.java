@@ -20,12 +20,12 @@ public class CoordinateServiceTest {
     @Test
     public void 좌표_저장() {
         List<CoordinateVO> vo = new ArrayList<>();
-        coordinateService.insertCoordinate(vo);
+        coordinateService.insertPoint(vo);
     }
 
     @Test
     public void 좌표_가져오기() {
-        List<CoordinateVO> vo = coordinateService.getCoordinate();
+        List<CoordinateVO> vo = coordinateService.getPoint();
         log.info("{}", vo);
     }
 

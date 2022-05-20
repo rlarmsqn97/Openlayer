@@ -15,14 +15,9 @@ public class CoordinateService {
 
     private final CoordinateDAO coordinateDAO;
 
-    public void insertCoordinate(List<CoordinateVO> vo){
-        coordinateDAO.coordinateInsert(vo);
-    }
-    public List<CoordinateVO> getCoordinate() {
-        log.info("coord :  {}", coordinateDAO.getCoordinate());
-        return coordinateDAO.getCoordinate();
-    }
-    public void insertPolygon(CoordinateVO vo) { coordinateDAO.polygonInsert(vo);}
+    public void insertPoint(List<CoordinateVO> vo){ coordinateDAO.pointInsert(vo); }
+    public List<CoordinateVO> getPoint() { return coordinateDAO.getPoint(); }
+    public void insertPolygon(List<CoordinateVO> vo) { coordinateDAO.polygonInsert(vo);}
     public List<CoordinateVO> getPolygon(){
         return coordinateDAO.getPolygon();
     }
