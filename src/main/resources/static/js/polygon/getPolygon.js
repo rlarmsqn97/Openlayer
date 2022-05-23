@@ -2,6 +2,7 @@ let polygonArr = [];
 $('#drawPolygon').click((e) => {
     getApi("/getPolygon")
         .then(res => {
+            console.log(res)
             for (let i = 0; i < res.length; i++) {
                 polygonArr.push(res[i].polygonCoordinate)
             }

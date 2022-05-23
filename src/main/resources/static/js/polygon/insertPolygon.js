@@ -6,9 +6,15 @@ insertPolygon = () => {
     }
     let data = []
     for(let i=0; i<features.length; i++){
-        data[i] = {polygonCoordinate : features[i]}
+        if(!features[i].includes("POINT")) {
+            data[i] = {polygonCoordinate: features[i]}
+        }
     }
-    console.log(data)
+
+    data = data.filter(function(item) {
+        return item !== null && item !== undefined && item !== ''
+    })
+
     const url = "/polygon"
     postApi(url, data)
         .then(()=> console.log("폴리곤 저장 성공"))

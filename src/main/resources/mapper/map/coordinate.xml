@@ -17,7 +17,10 @@
         </foreach>
     </insert>
     <select id="getPolygon" resultType="com.example.openlayer.map.vo.CoordinateVO">
-        select st_astext(geom) as polygonCoordinate from polygon
+        select st_astext(geom) as polygonCoordinate, polygon_no from polygon
     </select>
-</mapper>
 
+    <update id="polygonModify" parameterType="com.example.openlayer.map.vo.CoordinateVO">
+        update polygon set geom = (st_geomfromtext(#{vo.polygonCoordinate,jdbcType=VARCHAR}, 3857)) where polygon_no = #{polygonNo}
+    </update>
+</mapper>

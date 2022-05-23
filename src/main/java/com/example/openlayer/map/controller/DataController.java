@@ -38,7 +38,7 @@ public class DataController {
 
     @GetMapping("/getPolygon")
     public List<CoordinateVO> getPolygon() {
-        log.info("polygon : {}", coordinateService.getPolygon().get(0).getPolygonCoordinate());
+        log.info("polygon_no : {} , polygon : {}", coordinateService.getPolygon().get(0).getPolygonNo(), coordinateService.getPolygon().get(0).getPolygonCoordinate());
         return coordinateService.getPolygon();
     }
 }

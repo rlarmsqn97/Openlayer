@@ -4,6 +4,5 @@ function addInteraction(type){
         source : source,
         type: type,
     })
-    console.log(type)
     map.addInteraction(draw)
 }
