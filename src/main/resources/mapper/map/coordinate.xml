@@ -8,7 +8,7 @@
         </foreach>
     </insert>
     <select id="getPoint" resultType="com.example.openlayer.map.vo.CoordinateVO">
-        select st_astext(geom) as pointCoordinate from point
+        select st_astext(geom) as pointCoordinate, point_no from point
     </select>
     <insert id="polygonInsert" parameterType="com.example.openlayer.map.vo.CoordinateVO">
         insert into polygon (geom) values
@@ -21,6 +21,6 @@
     </select>
 
     <update id="polygonModify" parameterType="com.example.openlayer.map.vo.CoordinateVO">
-        update polygon set geom = (st_geomfromtext(#{vo.polygonCoordinate,jdbcType=VARCHAR}, 3857)) where polygon_no = #{polygonNo}
+        update polygon set geom = (st_geomfromtext(#{polygonCoordinate,jdbcType=VARCHAR}, 3857)) where polygon_no = #{polygonNo}
     </update>
 </mapper>

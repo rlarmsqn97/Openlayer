@@ -28,3 +28,24 @@ let postApi = (url, data) => {
         body: JSON.stringify(data),
     }).then(() => console.log())
 }
+
+let putApi = (url,data) => {
+    return fetch(url, {
+        method: 'PUT',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers:{
+            'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify(data),
+        redirect: 'follow',
+        referrer: 'no-referrer',
+    })
+}
+
+let deleteApi = (url) => {
+    return fetch(url, {
+        method: 'DELETE'
+    })
+}

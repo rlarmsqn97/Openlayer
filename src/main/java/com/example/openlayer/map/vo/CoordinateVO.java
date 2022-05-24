@@ -9,4 +9,5 @@ public class CoordinateVO {
     private String pointCoordinate;
     private String polygonCoordinate;
     private int polygonNo;
+    private int pointNo;
 }

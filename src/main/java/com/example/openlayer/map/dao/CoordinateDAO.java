@@ -11,4 +11,5 @@ public interface CoordinateDAO {
     List<CoordinateVO> getPoint();
     void polygonInsert(List<CoordinateVO> vo);
     List<CoordinateVO> getPolygon();
+    void polygonModify(CoordinateVO vo);
 }

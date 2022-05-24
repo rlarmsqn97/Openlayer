@@ -24,7 +24,7 @@ public class DataController {
 
     @GetMapping("/getCoordinate")
     public List<CoordinateVO> getCoordinate(){
-        log.info("coordinate : {}", coordinateService.getPoint());
+        log.info("point_no : {}, point : {}", coordinateService.getPoint().get(0).getPointNo(), coordinateService.getPoint().get(0).getPointCoordinate());
         return coordinateService.getPoint();
     }
 
@@ -40,5 +40,11 @@ public class DataController {
     public List<CoordinateVO> getPolygon() {
         log.info("polygon_no : {} , polygon : {}", coordinateService.getPolygon().get(0).getPolygonNo(), coordinateService.getPolygon().get(0).getPolygonCoordinate());
         return coordinateService.getPolygon();
+    }
+
+    @PutMapping("modifyFeature")
+    public void modifyFeature(@RequestBody CoordinateVO vo) {
+        log.info("polygonNo : {}, polygonCoordinate : {}", vo.getPolygonNo(), vo.getPolygonCoordinate());
+        coordinateService.polygonModify(vo);
     }
 }

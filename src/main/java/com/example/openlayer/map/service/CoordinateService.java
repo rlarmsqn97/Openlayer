@@ -21,4 +21,5 @@ public class CoordinateService {
     public List<CoordinateVO> getPolygon(){
         return coordinateDAO.getPolygon();
     }
+    public void polygonModify(CoordinateVO vo) {coordinateDAO.polygonModify(vo);}
 }

@@ -32,7 +32,7 @@
 <div>
     <h2>OpenLayers_MAP</h2>
     <div>
-        <a href="/logout">로그아웃</a>
+        <a th:href="@{/logout}">로그아웃</a>
     </div>
     <div id="map"></div>
     <!-- <button type="button" class="exportBtn" ><span>getGeoJSON</span></button> -->
@@ -47,7 +47,7 @@
     <button type="button" id="modify" class="btn">도형 수정</button>
     <div sec:authorize="hasRole('ROLE_ADMIN')">
          <a th:href="@{/userList}">회원관리</a>
-        <span sec:authentication="principal.authorities"></span>
+        <span sec:authentication="principal"></span>
     </div>
 </div>
 
