@@ -6,8 +6,13 @@ $('#modify').click(() => {
 modifyCoordinate = () => {
     let select = new ol.interaction.Select()
     map.addInteraction(select)
+
     let modify = new ol.interaction.Modify({
-        features: select.getFeatures()
+        features: select.getFeatures(),
+        deleteCondition: function(event) {
+            return ol.events.condition.shiftKeyOnly(event) &&
+                ol.events.condition.singleClick(event);
+        }
     })
     map.addInteraction(modify)
 
