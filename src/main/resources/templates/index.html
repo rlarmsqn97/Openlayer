@@ -35,9 +35,6 @@
 <body>
 <div>
     <h2>OpenLayers_MAP</h2>
-    <div>
-        <a th:href="@{/logout}">로그아웃</a>
-    </div>
     <div id="map"></div>
     <!-- <button type="button" class="exportBtn" ><span>getGeoJSON</span></button> -->
     <button type="button" id="gangdong" class="btn">강동</button>
@@ -50,10 +47,6 @@
     <button type="button" id="drawPolygon" class="btn">db폴리곤</button>
     <button type="button" id="modify" class="btn">도형 수정</button>
     <button type="button" id="delete" class="btn">도형 삭제</button>
-    <div sec:authorize="hasRole('ROLE_ADMIN')">
-         <a th:href="@{/userList}">회원관리</a>
-        <span sec:authentication="principal"></span>
-    </div>
 </div>
 
 
